@@ -10,7 +10,19 @@ BEGIN
 	f1
 END;
 
+PROC fibrec = (INT n) INT:
 BEGIN
-	INT i = fibonacci(read int);
-	print(("Hi", newline, i))
+	IF n <= 2
+	THEN
+		1
+	ELSE
+		fibrec(n - 1) + fibrec(n - 2)
+	FI
+END;
+
+BEGIN
+	INT n := read int;
+	INT i_it := fibonacci(n);
+	INT i_rec := fibrec(n);
+	print((i_it, newline, i_rec))
 END
